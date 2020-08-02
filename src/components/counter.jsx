@@ -3,13 +3,29 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {
     count: 1,
+    tags: [],
+  };
+
+  handleIncrement = () => {
+    console.log("Incremented.", this);
   };
 
   render() {
     return (
       <React.Fragment>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
-        <button className="btn btn-secondary btn-sm">Increment</button>
+        <button
+          onClick={this.handleIncrement} //a reference to the method, not a call to the method; otherwise the method would be called at rendering
+          className="btn btn-secondary btn-sm"
+        >
+          Increment
+        </button>
+        {this.state.tags.length === 0 && <p>There are not tags.</p>}
+        <ul>
+          {this.state.tags.map((tag) => (
+            <li key={tag}>hola</li>
+          ))}
+        </ul>
       </React.Fragment>
     );
   }
