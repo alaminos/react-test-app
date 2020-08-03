@@ -7,7 +7,9 @@ class Counter extends Component {
   };
 
   handleIncrement = () => {
-    console.log("Incremented.", this);
+    console.log("Incremented.");
+    //this.state.count++ <--this would work, but REact would not be aware of that change
+    this.setState({ count: this.state.count + 1 });
   };
 
   render() {
