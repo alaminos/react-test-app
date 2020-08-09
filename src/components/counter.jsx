@@ -2,17 +2,18 @@ import React, { Component } from "react";
 
 class Counter extends Component {
   state = {
-    count: 1,
+    value: this.props.value,
     tags: [],
   };
 
   handleIncrement = () => {
     console.log("Incremented.");
-    //this.state.count++ <--this would work, but REact would not be aware of that change
-    this.setState({ count: this.state.count + 1 });
+    this.setState({ value: this.state.count + 1 });
   };
 
   render() {
+    //console.log("props", this.props);
+
     return (
       <React.Fragment>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
